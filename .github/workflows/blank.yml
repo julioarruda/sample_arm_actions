@@ -12,6 +12,8 @@ jobs:
       - uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
+  
+      - run: az group create -l brazilsouth -n demo-arm-rg
           
       - uses: azure/arm-deploy@v1
         with:
