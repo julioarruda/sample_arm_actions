@@ -15,7 +15,7 @@
         {
             "type": "Microsoft.Web/serverfarms",
             "apiVersion": "2018-02-01",
-            "name": "[parameters('serverfarms_externalid')]",
+            "name": "[concat(parameters('web_app_name'),'-asp')]",
             "location": "Brazil South",
             "sku": {
                 "name": "S1",
