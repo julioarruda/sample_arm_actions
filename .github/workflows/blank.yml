@@ -1,0 +1,20 @@
+name: CI
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+          
+      - uses: azure/arm-deploy@v1
+        with:
+          resourceGroupName: demo-arm-rg
+          template: ./arm/webapp.json
+          parameters: web_app_name=sample-arruda-arm
